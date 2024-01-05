@@ -13,14 +13,14 @@ public class Main {
         try {
             Connection conn = DriverManager.getConnection("jdbc:mariadb://localhost:3306/game", "root", "Botlas");
 
-            DatabaseHandler dbHandler = new DatabaseHandler(conn); // Skapar en instans av DatabaseHandler
+            DatabaseHandler dbHandler = new DatabaseHandler(conn);
 
-            dbHandler.createTables(); // Anropar createTables-metoden för att skapa tabeller
+            dbHandler.createTables();
 
-            Player playerName = dbHandler.loadPlayer(); // Laddar spelaren från databasen
+            Player playerName = dbHandler.loadPlayer();
             if (playerName == null) {
                 playerName = new Player("Player 1", 100, 10);
-                dbHandler.savePlayer(playerName); // Sparar spelaren i databasen om den inte finns
+                dbHandler.savePlayer(playerName);
             }
 
             Monster monsterName = new Monster("Dragon", 150, 15);
